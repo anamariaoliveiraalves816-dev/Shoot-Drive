@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Game Catalog</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div>
+        <h1>Demo Game Catalog</h1>
+        <p>Browse playable demo games, launch them instantly, and submit demo entries as often as you like.</p>
+      </div>
+      <div class="stats-panel">
+        <div>
+          <span id="gameCount">0</span>
+          <p>Games listed</p>
+        </div>
+        <div>
+          <span id="playsCount">0</span>
+          <p>Total plays</p>
+        </div>
+        <div>
+          <span id="sessionPlays">0</span>
+          <p>Session plays</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="catalog-section">
+        <div class="section-header">
+          <h2>Playable Demo Games</h2>
+          <p>Select a title to launch a demo and track play count.</p>
+        </div>
+        <div id="catalog" class="catalog-grid"></div>
+      </section>
+
+      <section class="releases-section">
+        <div class="section-header">
+          <h2>Monthly Releases</h2>
+          <p>Number of demo releases per month (last 12 months).</p>
+        </div>
+        <div id="monthlyReleases" class="monthly-releases"></div>
+      </section>
+
+      <section class="form-section">
+        <div class="section-header">
+          <h2>Submit a Demo Game</h2>
+          <p>Share a new demo by filling the form below. Submissions are saved locally.</p>
+        </div>
+        <form id="gameForm" class="game-form">
+          <label>
+            Game title
+            <input type="text" id="title" required placeholder="Enter demo game title" />
+          </label>
+          <label>
+            Genre
+            <input type="text" id="genre" required placeholder="e.g. Platformer, Puzzle" />
+          </label>
+          <label>
+            Developer
+            <input type="text" id="developer" required placeholder="Demo developer or studio" />
+          </label>
+          <label>
+            Demo link
+            <input type="url" id="link" required placeholder="https://example.com/demo" />
+          </label>
+          <label>
+            Description
+            <textarea id="description" rows="4" placeholder="Short demo description"></textarea>
+          </label>
+          <button type="submit">Submit Demo Game</button>
+          <div id="formMessage" class="form-message" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <template id="gameCardTemplate">
+    <article class="game-card">
+      <div class="game-card-header">
+        <div>
+          <h3 class="game-title"></h3>
+          <span class="game-meta"></span>
+        </div>
+        <span class="play-count">Plays: <strong>0</strong></span>
+      </div>
+      <p class="game-description"></p>
+      <div class="card-actions">
+        <a class="play-button" target="_blank" rel="noopener">Play Demo</a>
+        <button class="delete-button" aria-label="Remove game">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
